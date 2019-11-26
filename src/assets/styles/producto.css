@@ -1,0 +1,37 @@
+.contenedorProductos {
+    background: #33dd33;
+}
+.container {
+    height:350;
+    background:'#303030';
+    margin-top:8;
+    width:'90%';
+    justify-content:'center';        
+}
+.containerProducto {
+    margin-top:20;
+    background:'#ccc';
+    padding:5;
+    height:200;
+    width: '100%';
+    margin-left: 3;
+    float: left;
+    border:1px solid black;
+}
+.containerDescripcion {
+  right: 0;
+  width:'50%';
+  height:auto;
+  background:'#e0e';
+}
+.logo {
+    width:'25%';
+    border-radius: 5;
+    height:90;
+    background:'#006957';
+}
+.precio {
+    width:'95%';
+    color: '#fff';
+    height:'auto';
+}
