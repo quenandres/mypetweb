@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-import Productos from '../Containers/Productos';
+import Tiendas from '../Containers/Tiendas';
 import Header from '../Components/Header';
 
 class TiendasPage extends Component {
@@ -8,7 +8,7 @@ class TiendasPage extends Component {
         return (
             <>
                 <Header />
-                <Productos />
+                <Tiendas />
             </>
         );
     }

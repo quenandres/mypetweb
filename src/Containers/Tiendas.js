@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 
 import Header from '../Components/Header';
+import TiendasList from '../Components/TiendasList';
 
 
 class Tiendas extends Component {
@@ -23,28 +24,23 @@ class Tiendas extends Component {
     }
 
 
-    render() {  
+    render() {
         
         if ( this.state.loading ) {
-            return(    
+            return(                   
                 <h1>Cargando...</h1>                
             )  
         } else {
             return(
                 this.state.tiendasList.map(function(item, i){
-                    console.log('test');
-                    return <Tienda key={i} data = {item} />
+                    return (<div className="contenedorProductos">
+                        <TiendasList key={i} data = {item} />
+                    </div>);
                 })
             )  
         }  
     }
 }
 
-const Tienda = (data) => {
-    console.log(data);
-    return(
-        <h1>Hola tienda {data.data.nombre}</h1>
-    );
-}
 
 export default Tiendas;

@@ -23,7 +23,7 @@ class Productos extends Component {
     }
 
 
-    render() {  
+    render() {
         
         if ( this.state.loading ) {
             return(                   

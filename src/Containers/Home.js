@@ -14,6 +14,8 @@ class Home extends Component {
         return(
             <>
                 <h1>Bienvenido</h1>
+                <Tiendas />
+                <Productos />
             </>
         );        
     }
