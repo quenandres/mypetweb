@@ -2,19 +2,18 @@ import React from 'react'
 
 import '../assets/styles/producto.css';
 
-import {img} from '../assets/images/banoseco.jpg';
 
 
-import { vetactin } from '../assets/images/vetactin.jpg';
-import { viusid } from '../assets/images/viusid.jpg';
-import { babemic } from '../assets/images/babemic.jpg';
-import { colivet } from '../assets/images/colivet.png';
-import { veproflox } from '../assets/images/veproflox.jpg';
-import { correas } from '../assets/images/correas.jpg';
-import { kitlimpieza } from '../assets/images/kitlimpieza.jpg';
-import { sulphur } from '../assets/images/sulphur.jpg';
-import { caja } from '../assets/images/caja.jpg';
-import { banoseco } from '../assets/images/banoseco.jpg';
+import vetactin from '../assets/images/Productos/vetactin.jpg';
+import viusid from '../assets/images/Productos/viusid.jpg';
+import babemic from '../assets/images/Productos/babemic.jpg';
+import colivet from '../assets/images/Productos/colivet.png';
+import veproflox from '../assets/images/Productos/veproflox.jpg';
+import correas from '../assets/images/Productos/correas.jpg';
+import kitlimpieza from '../assets/images/Productos/kitlimpieza.jpg';
+import sulphur from '../assets/images/Productos/sulphur.jpg';
+import caja from '../assets/images/Productos/caja.jpg';
+import banoseco from '../assets/images/Productos/banoseco.jpg';
 
 
 
@@ -24,7 +23,7 @@ const ProductoList = (data) => {
     return(
         <div className="containerProducto">
             <div className="logo">
-                <img src={process.env.PUBLIC_URL + '/'+logo} alt="logo"/>             
+                <img src={ logo } alt="logo"/>             
             </div>
             <div className="containerDescripcion">
                 <div>{data.data.nombre}</div>

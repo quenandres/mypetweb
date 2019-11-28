@@ -5,6 +5,7 @@ import Header from '../Components/Header';
 import '../assets/styles/perfil.css';
 
 import imagen from '../assets/images/perro1.jpg';
+
 class Perfil extends Component {
     constructor(props) {
         super();

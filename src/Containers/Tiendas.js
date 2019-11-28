@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 import Header from '../Components/Header';
-import TiendasList from '../Components/TiendasList';
+import TiendasList from '../Components/TiendasList-';
 
 
 class Tiendas extends Component {
@@ -31,13 +31,22 @@ class Tiendas extends Component {
                 <h1>Cargando...</h1>                
             )  
         } else {
-            return(
-                this.state.tiendasList.map(function(item, i){
-                    return (<div className="contenedorProductos">
-                        <TiendasList key={i} data = {item} />
-                    </div>);
-                })
-            )  
+            return (
+                <>
+                    <table className="table table-striped" width="50%">
+                        <tr>
+                            <td>Buscar Tienda</td>
+                            <td>
+                                <input type="text" className="form-control" placeholder="Tienda..."/>
+                            </td>
+                            <td>
+                                <input type="button" className="btn btn-primary" value="Buscar" />
+                            </td>
+                        </tr>
+                    </table>
+                        <TiendasList />
+                </>
+            );                             
         }  
     }
 }

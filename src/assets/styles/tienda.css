@@ -1,0 +1,40 @@
+.contenedorTiendas {
+    background: #33dd33;
+}
+.containerTienda {
+    margin-top:20;
+    background:'#ccc';
+    padding:5;
+    height:200px;
+    width: 300px;
+    margin-left: 3;
+    float: left;
+    border:1px solid black;
+}
+
+.logoTienda {
+    width:100%;    
+    height:auto;
+    background: rgb(15, 117, 23);
+}
+
+.logoTienda {
+    display: block;
+    width:100px;
+    height:130px;
+    border-radius: 50%;
+    margin:auto;
+    text-align: center;
+    transition: 2s;
+}
+
+.logoTienda:hover {
+    border-radius: 0%;
+}
+
+.nombreVeterinaria {
+    font-size: 22pt;
+    width:100%;
+    text-align: center;
+    color:#000;
+}
