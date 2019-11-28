@@ -11,9 +11,64 @@ import Veterinaria_cats from '../assets/images/Veterinarias/Veterinaria_cats.jpe
 
 class TiendaList extends Component {
     
+    constructor(props) {
+        super();
+        this.state = {
+            tiendas:[]
+        }
+    }
+
+    myChangeHandler = (event) => {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+
+    mySubmitHandler = (event) => {
+        event.preventDefault();
+
+        const url = `http://127.0.0.1:8000/api/buscatienda/${this.state.tienda}`;
+            window.fetch(url,{
+                method:'POST'
+            })
+            .then(res => res.json())
+            .then(respuesta => {
+                this.setState({tiendas: respuesta.data});
+            });
+   }
+
+
     render() {
         return(
             <div>
+                <form onSubmit={this.mySubmitHandler} >
+                    <table className="table table-striped" width="50%">
+                        <tr>
+                            <td>Buscar Tienda</td>
+                            <td>
+                                <input type="text" name="tienda" className="form-control" placeholder="Tienda..."  onChange={this.myChangeHandler}/>
+                            </td>
+                            <td>
+                                <input type="submit" className="btn btn-primary" value="Buscar" />
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <table className="table table-striped">
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Direccion</th>
+                        </tr>
+                    {
+                        this.state.tiendas.map(function(item, i){
+                            return (
+                                <tr>
+                                    <td>{item.nombre}</td>
+                                    <td>{item.direccion}</td>
+                                </tr>
+                            );
+                        })
+                    }
+                </table>
                 <div className="containerTienda">                    
                     <div className="nombreVeterinaria">Clinica veterinaria</div>
                     <img src={clinica_veterinaria} alt="logo" className="logoTienda"/>                    

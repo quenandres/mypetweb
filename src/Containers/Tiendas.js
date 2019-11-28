@@ -32,19 +32,8 @@ class Tiendas extends Component {
             )  
         } else {
             return (
-                <>
-                    <table className="table table-striped" width="50%">
-                        <tr>
-                            <td>Buscar Tienda</td>
-                            <td>
-                                <input type="text" className="form-control" placeholder="Tienda..."/>
-                            </td>
-                            <td>
-                                <input type="button" className="btn btn-primary" value="Buscar" />
-                            </td>
-                        </tr>
-                    </table>
-                        <TiendasList />
+                <>                    
+                  <TiendasList />
                 </>
             );                             
         }  

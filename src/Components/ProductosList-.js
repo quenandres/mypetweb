@@ -18,11 +18,64 @@ import banoseco from '../assets/images/Productos/banoseco.jpg';
 
 class ProductoList extends Component {
     
-    render() {
-    //const logo = data.data.imagen;
+    constructor(props) {
+        super();
+        this.state = {
+            productos:[],
+            producto: '',
+            nombre: '',
+            precio: '',
+            descripcion: ''
+        }
+    }
 
+    myChangeHandler = (event) => {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    mySubmitHandler = (event) => {
+        event.preventDefault();
+
+        const url = `http://127.0.0.1:8000/api/buscaproducto/${this.state.producto}`;
+            window.fetch(url,{
+                method:'POST'
+            })
+            .then(res => res.json())
+            .then(respuesta => {
+                this.setState({productos: respuesta.data});
+            });
+    }
+
+    render() {
         return(
             <div>
+                <form onSubmit={this.mySubmitHandler} >
+                <table className="table table-striped" width="50%">
+                    <tr>
+                        <td>Buscar Producto</td>
+                        <td>
+                            <input type="text" name="producto" className="form-control" placeholder="Producto..."  onChange={this.myChangeHandler}/>
+                        </td>
+                        <td>
+                            <input type="submit" className="btn btn-primary" value="Buscar" />
+                        </td>
+                    </tr>
+                </table>
+                <table className="table table-striped">
+                    {
+                        this.state.productos.map(function(item, i){
+                            return (
+                                <tr>
+                                    <td>{item.nombre}</td>
+                                    <td>$ {item.precio}</td>
+                                    <td>{item.descripcion}</td>
+                                </tr>
+                            );
+                        })
+                    }
+                </table>
+                </form>
+
                 <div className="containerProducto">
                     <div className="logo">
                         <div className="nombreProducto">Vetactin</div>

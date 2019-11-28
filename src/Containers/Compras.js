@@ -7,6 +7,7 @@ class Compras extends Component {
     constructor(props) {
         super();
         this.state = {
+            productosList:[],
             comprasList:[],
             loading: true,
             producto: 1,
@@ -37,6 +38,7 @@ class Compras extends Component {
     
     componentWillMount () {
         this.getCompras();
+        this.getProductos();
     }
 
     getCompras() {
@@ -51,6 +53,19 @@ class Compras extends Component {
         });
     }
 
+
+    getProductos() {
+        window.fetch('http://127.0.0.1:8000/api/productos',{
+            method:'GET',
+        })
+        .then(response => {
+            return response.json();
+        })
+        .then(response => {
+            console.log(response.data);
+            this.setState({ productosList: response.data });
+        });
+    }
 
     render() {  
         
@@ -69,20 +84,15 @@ class Compras extends Component {
                         <tr>
                             <th>
                                 <select name="producto" className="form-control" value={this.state.producto} onChange={this.myChangeHandler}>
-                                    <option value="1">Vetactin</option>                                   
-                                    <option value="2">Viusid</option>                                   
-                                    <option value="3">Babemic</option>                                   
-                                    <option value="4">Colivet</option>                                   
-                                    <option value="5">Veproflox</option>                                   
-                                    <option value="6">Correas perros</option>                                   
-                                    <option value="7">kit de limpieza</option>                                   
-                                    <option value="8">Sulphur</option>                        
-                                    <option value="9">Caja de transporte</option>
-                                    <option value="10">Baño seco</option>
+                                    {
+                                    this.state.productosList.map(function(item, i){
+                                    return <option value={item.id}>{item.nombre}</option>
+                                    })
+                                    }                                    
                                 </select>
                             </th>
                             <th><input name="cantidad" className="form-control" onChange={this.myChangeHandler}/></th>
-                        </tr>  
+                        </tr>
                         <tr>
                             <th><input type="submit" value="Crear" className="btn btn-primary" /></th>
                         </tr>   
