@@ -13,7 +13,7 @@ class Compras extends Component {
     }
     
     componentWillMount () {
-        window.fetch('http://127.0.0.1:8000/api/compras')
+        window.fetch('http://127.0.0.1:8000/api/comprasproducto')
         .then(response => {
             return response.json();
         })
